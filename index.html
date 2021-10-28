@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/normalize.css" /> -->
+    <!-- 引入格式化css文件 放到自己css文件的上面，用来提升自己css的优先级 -->
+    <link rel="stylesheet" href="./css/vant.css">
+    <script src="./js/vue.js"></script>
+    <script src="./js/vant.js"></script>
+</head>
+
+<body onload="start()">
+    <div id="app" v-cloak>
+        <link rel="stylesheet" v-if='adaptCss' href="./css/adapt.css" />
+        <link rel="stylesheet" v-else href="./css/index.css" />
+        <link rel="stylesheet" :href="darkModel"> <!-- 黑暗模式CSS样式表 -->
+        <!-- 头部无内容区 -->
+        <div class="headerBox">
+            <div class="headerTop"></div>
+            <div class="headerUnder"></div>
+        </div>
+        <!-- 警告提示区 -->
+        <div class="tips" v-show="tipShow" id="tipId">
+            <img :src="tipImg">
+            <span>{{tipsOne}}</span>
+        </div>
+        <!-- 图片区 -->
+        <div class="goodsImage" ref="marginTop">
+            <img src="./image/goods.png">
+        </div>
+        <!-- 标志区 -->
+        <div class="goodsMark">
+            <img src="./image/mark.png">
+        </div>
+        <!-- 模拟按钮区结束 -->
+        <div v-if='true' class="log1">
+            <div id="log1">打印内容</div>
+            <div id="log2">打印内容</div>
+        </div>
+        <!-- 标志区结束 -->
+        <!-- 1号长卡片旋转等待区 -->
+        <div class="cardOne" :style="cardOneMargin">
+            <span class="startText" v-text="textSwitch"></span> <!-- 开关待机文字 -->
+            <!-- 中间区域 -->
+            <div class="middleBox">
+                <div v-if='middleShow'>
+                    <div class="timeTop"><span class="unit"></span></div>
+                    <div class="underText"></div>
+                </div>
+            </div>
+            <!-- 右侧开关按钮，loading按钮区 -->
+            <div class="changeBox">
+                <img class="imgOpen" v-if='imgShow1' :src="loadingImg">
+                <img class="imgOpen2" v-else-if='imgShow2' :src="buttonImg" onclick="openOrClose()"></img>
+                <div class="imgOpen3" v-else @click="reconnection">{{reconnect}}</div>
+            </div>
+        </div>
+        <!-- 结束 -->
+        <!-- 蓝牙连接失败提示区域 -->
+        <van-popup v-model="isShow" position="bottom" :style="popupWidth">
+            <div class="dialogTitle">{{ defeatTitle }}</div>
+            <div class="defeatText" v-html="defeatText">
+                <!-- 提示文字区域 -->
+            </div>
+            <div class="bluetoothButton">
+                <span class="cancelText" @click="isShow=false">
+                    <div>{{ defeatCancel }}</div>
+                </span>
+                <span class="confirmText" @click="reconnection">
+                    <div>{{ defeatConfirm }}</div>
+                </span>
+            </div>
+        </van-popup>
+        <!-- 结束 -->
+    </div>
+    <!--  vue.js区域结束 -->
+    <!-- 引入flexible.js，放在底部，有利于加载优化 -->
+    <script src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/flexible.js"></script>
+
+</body>
+
+</html>

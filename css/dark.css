@@ -1,0 +1,106 @@
+body,
+.headerBox {
+  background-color: #000000 !important;
+}
+
+/* 白色设备需要加透明度，黑色设备不需要加 */
+.goodsImage {
+  opacity: 86% !important;
+}
+
+/* 电量提示 */
+.tips {
+  background-color: #2b0e0b !important;
+  color: #d94838 !important;
+}
+
+/* 上方大字体 */
+.startText,
+.timeTop,
+.bigList span,
+.timeTop2,
+.van-cell__title {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+/* 卡片背景颜色 */
+.cardOne,
+.cardTwo,
+.smallLeft,
+.cardSpeed,
+.smallRight {
+  background-color: #303030 !important;
+}
+
+/* 下方灰色小字体 */
+.underText,
+.unit {
+  color: #fff;
+  opacity: 60%;
+}
+
+/* 列表区 */
+.bigList {
+  background-color: #363636 !important;
+}
+
+.bigList > div:active {
+  background-color: rgba(0, 108, 222, 0.1) !important;
+}
+
+/* 列表下边框区 */
+
+/* .modelBox1:nth-child(-n+3) .modelBox {
+    border-bottom: .006944rem solid rgba(255, 255, 255, 0.2) !important;
+} */
+
+/* 弹出框背景颜色 */
+.van-popup--bottom,
+.van-popup,
+.van-picker__toolbar {
+  background-color: #363636 !important;
+}
+
+/* 蓝牙弹出框标题文字 */
+.dialogTitle,
+.timeTitle {
+  color: #ffffff !important;
+  opacity: 90% !important;
+}
+
+.defeatText {
+  color: #fff;
+  opacity: 86%;
+}
+
+.van-picker-column__item--selected::after,
+.cancelText,
+.confirmText,
+.timeMinutes,
+.imgOpen3,
+.van-picker__cancel,
+.van-picker__confirm {
+  color: #5291ff !important;
+}
+
+.cancelText,
+.van-picker__cancel {
+  border-right: 0.006944rem solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 弹窗后蒙版颜色 */
+.van-overlay {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 圆点单选框 */
+/* .van-cell::after {
+    border-bottom: .006944rem solid rgba(255, 255, 255, .2) !important;
+} */
+/* 
+.van-cell__title,
+.van-cell__value,
+.van-cell,
+.van-hairline--top-bottom {
+    background-color: #262626 !important;
+} */
