@@ -3,12 +3,12 @@ var app = new Vue({
   data: {
     // 变量区
     darkModel: null,
-    adaptCss: false,
+    padCss: false,
+    foldCss: false,
     tipShow: false, //警告提示是否显示
     isShow: false, //蓝牙连接失败提示
     imgShow1: true, //连接中loading显示
     imgShow2: false, //重新连接文字显示
-    notClick: "",
     middleShow: false,
     // 文字区
     textSwitch: "连接中",
@@ -26,7 +26,7 @@ var app = new Vue({
     tipImg: "", //警告提示图片
     loadingImg: "./image/loading.png",
     buttonImg: "./image/standby.png",
-    notClick: "opacity: 0.4;pointer-events: none;margin: 12px 12px 0px 12px;",
+    notClick: "opacity: 0.4;pointer-events: none",
     // pad折叠屏的适配
     popupWidth: "width:266px",
     cardOneMargin: "margin: 10px 12px 0px 12px;",
@@ -207,14 +207,19 @@ function start() {
   const screenWidth = document.body.clientWidth;
   const width = screenWidth / 2 - 27;
   app.popupWidth = `width:${width}px`;
-  if (document.body.clientWidth > 500) {
-    app.adaptCss = true;
+  if (document.body.clientWidth > 500 && document.body.clientWidth < 700) {
+    app.padCss = true;
+  } else if (document.body.clientWidth > 700) {
+    app.padCss = false;
+    app.foldCss = true;
   } else {
-    app.adaptCss = false;
+    app.padCss = false;
+    app.foldCss = false;
   }
   if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
     app.notClick = "opacity: 0.4;pointer-events: none;margin: 12px 24px 0px 24px;";
     app.cardOneMargin = "margin: 10px 24px 0px 24px;";
+    app.cardTwoMargin = "margin: 12px 24px 0px 24px;";
     app.tipsMargin = "left: 24px;right: 24px;";
   } else {
     app.notClick = "opacity: 0.4;pointer-events: none;margin: 12px 12px 0px 12px;";

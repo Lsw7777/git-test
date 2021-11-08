@@ -13,7 +13,8 @@
 
 <body onload="start()">
     <div id="app" v-cloak>
-        <link rel="stylesheet" v-if='adaptCss' href="./css/adapt.css" />
+        <link rel="stylesheet" v-if='padCss' href="./css/pad.css" />
+        <link rel="stylesheet" v-else-if='foldCss' href="./css/fold.css" />
         <link rel="stylesheet" v-else href="./css/index.css" />
         <link rel="stylesheet" :href="darkModel"> <!-- 黑暗模式CSS样式表 -->
         <!-- 头部无内容区 -->

@@ -113,8 +113,8 @@ body {
 }
 
 .tips > img {
-  width: 19px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
   margin-left: 12px;
   margin-right: 16px;
 }
@@ -184,13 +184,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.middleBox > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 .timeTop {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.9);
@@ -230,35 +224,30 @@ body {
 /* 一号卡片结束 */
 
 /* 二号卡片大卡片 */
-.cardSpeed {
+.cardTwo {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  height: 64px;
+  height: 88px;
   background-color: #ffffff;
   border-radius: 16px;
 }
-.cardSpeed div {
+.cardTwo > div {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.cardSpeed img {
-  width: 20px;
-  height: 20px;
-}
-.cardSpeed div:nth-child(2) {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.cardTwo > div:nth-child(-n + 2) {
+  height: 24px;
+  border-right: 0.25px solid rgba(0, 0, 0, 0.2);
 }
 /* ------------------------------- */
 /* 三号长卡片单功能 */
 .cardThree {
   margin: 0 auto;
-  margin: 12px 24px 0px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -267,16 +256,10 @@ body {
   border-radius: 16px;
 }
 
-.timeTop2 {
-  font-size: 1.6rem;
-  color: rgba(0, 0, 0, 0.9);
-}
-
 /* ----------------------------------------------- */
 /* 四号功能左右小卡片区 */
 .smallBox {
   display: flex;
-  margin: 12px 12px 0px 12px;
 }
 .smallLeft {
   flex: 1;
@@ -360,7 +343,6 @@ body {
   text-align: center;
   border-right: 0.25px solid rgba(0, 0, 0, 0.2);
   color: #0a59f7;
-  margin-bottom: 14px;
 }
 .cancelText div {
   width: 144px;
@@ -373,7 +355,6 @@ body {
   font-size: 16px;
   text-align: center;
   color: #0a59f7;
-  margin-bottom: 14px;
 }
 .confirmText div {
   width: 144px;
@@ -428,7 +409,7 @@ body {
 .van-cell::after {
   right: 24px !important;
   left: 24px !important;
-  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2) !important;
 }
 /* -------------------------------------------------- */
 /* 倒计时区域 */
@@ -444,7 +425,6 @@ body {
   height: 28px;
   padding: 0 0;
 }
-
 .van-picker__confirm {
   font-size: 16px;
   color: #0a59f7;
@@ -479,8 +459,8 @@ body {
 
 .van-popup .van-picker__frame {
   height: 56px !important;
-  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2) !important;
   border-top: 0.25px solid rgba(0, 0, 0, 0.2) !important;
+  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2) !important;
   margin-left: 10px;
   margin-right: 10px;
 }
