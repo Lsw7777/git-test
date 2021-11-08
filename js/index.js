@@ -92,14 +92,15 @@ let deviceId = "",
   timer1;
 
 // --------------------------------------------蓝牙返回值区域------------------------------------------------------------------------
-function backValue(data) {
-  let effectiveData;
-  if (data.length == 37) {
-    effectiveData = data.slice(12, 25);
-    document.getElementById("log1").innerHTML = effectiveData;
-    effectiveData[0] == 1 ? uiShow(4) : uiShow(3);
-  }
-}
+// function backValue(data) {
+//   document.getElementById("log1").innerHTML = data;
+//   let effectiveData;
+//   if (data.length == 37) {
+//     effectiveData = data.slice(12, 25);
+//     document.getElementById("log1").innerHTML = effectiveData;
+//     effectiveData[0] == 1 ? uiShow(4) : uiShow(3);
+//   }
+// }
 
 // --------------------------------------------------------------ui界面设置区域----------------------------------------------------------------------------------
 //1为连接中  2为未连接  3为待机  4为工作中
@@ -355,7 +356,8 @@ function onBLEConnectionStateChangeCallBack(result) {
   } else {
     setTimeout(keepConnect, 2000);
     setTimeout(writeCheckDevice, 3700);
-    setTimeout(notifyData, 1300);
+    // setTimeout(notifyData, 1300);
+    setInterval(read, 1300);
   }
 }
 
@@ -391,20 +393,35 @@ function openOrClose() {
 
 // 开始指令
 function writeStart() {
-  var realData = [2, 0, 1, 1];
-  var data = ble_msg_packet_up(realData, bleCountNum);
+  var data = [];
+  data.push(0x03 & 0xff);
+  data.push(0x04 & 0xff);
+  data.push(0x01 & 0xff);
+  data.push(0x01 & 0xff);
+  data.push(0x00 & 0xff);
+  data.push(30 & 0xff);
+  data.push(0x01 & 0xff);
   writeControl(bytes2Str(data));
 }
 
 // 停止指令
 function writeStop() {
-  var realData = [2, 0, 1, 0];
-  var data = ble_msg_packet_up(realData, bleCountNum);
+  var data = [];
+  data.push(0x03 & 0xff);
+  data.push(0x01 & 0xff);
+  data.push(0x02 & 0xff);
+  data.push(0x01 & 0xff);
   writeControl(bytes2Str(data));
 }
 function writeSpeed(id) {
-  var realData = [3, 0, 1, id];
-  var data = ble_msg_packet_up(realData, bleCountNum);
+  var data = [];
+  data.push(0x03 & 0xff);
+  data.push(0x04 & 0xff);
+  data.push(0x04 & 0xff);
+  data.push(speed & 0xff);
+  data.push(0x01 & 0xff);
+  data.push(0x01 & 0xff);
+  data.push(0x01 & 0xff);
   writeControl(bytes2Str(data));
 }
 // -------------------------------------------------------------------蓝牙指令区-------------------------------------------------------------------------------
@@ -417,9 +434,29 @@ function keepConnect() {
     "E54EAA30-371B-476C-99A3-74D267E3EDAE",
     "E54EAA33-371B-476C-99A3-74D267E3EDAE",
     bytes2Str(data),
-    "unlockCallBack"
+    "searchCallback"
   );
 }
+
+function searchCallback(result) {
+  read();
+}
+
+function read() {
+  hilink.readBLECharacteristicValue(
+    deviceId,
+    "E54EAA30-371B-476C-99A3-74D267E3EDAE",
+    "E54EAA35-371B-476C-99A3-74D267E3EDAE",
+    "readCallBack"
+  );
+}
+
+function readCallBack(result) {
+  var data = encodeRead(JSON.parse(result).data);
+  document.getElementById("log1").innerHTML = data;
+  data[2] == 2 ? uiShow(4) : uiShow(3);
+}
+
 // 不可删除
 function writeCheckDevice() {
   // document.getElementById("log2").innerHTML = "检测命令" + csml;
@@ -439,45 +476,41 @@ function writeControl(data) {
   );
 }
 
-function notifyData() {
-  var notifyState;
-  hilink.onBLECharacteristicValueChange("notifyCallBack");
-  if (!isIOS) {
-    window.hilink.setEnableIndication(false);
-  }
-  notifyState = window.hilink.notifyBLECharacteristicValueChange(
-    deviceId,
-    "E54EAA30-371B-476C-99A3-74D267E3EDAE",
-    "E54EAA35-371B-476C-99A3-74D267E3EDAE",
-    true
-  );
-  if (notifyState !== 0) {
-    setTimeout(notifyData, 50);
-  }
-}
+// function notifyData() {
+//   var notifyState;
+//   hilink.onBLECharacteristicValueChange("notifyCallBack");
+//   if (!isIOS) {
+//     window.hilink.setEnableIndication(false);
+//   }
+//   notifyState = window.hilink.notifyBLECharacteristicValueChange(
+//     deviceId,
+//     "E54EAA30-371B-476C-99A3-74D267E3EDAE",
+//     "E54EAA35-371B-476C-99A3-74D267E3EDAE",
+//     true
+//   );
+//   if (notifyState !== 0) {
+//     setTimeout(notifyData, 50);
+//   }
+// }
 
-function notifyCallBack(result) {
-  var receiveDate = strToHexCharCode(JSON.parse(result).data);
-  if (receiveDate.length > 3) {
-    if (receiveDate[9] === 129) {
-      deviceErrorUI();
-    } else if (receiveDate[0] === 13 && receiveDate[1] === 10) {
-      backValue(notifyGetData);
-      notifyGetData = [];
-      for (let i = 0; i < receiveDate.length; i++) {
-        notifyGetData.push(receiveDate[i]);
-      }
-    } else {
-      for (let i = 0; i < receiveDate.length; i++) {
-        notifyGetData.push(receiveDate[i]);
-      }
-    }
-  }
-}
-// 错误提示
-function deviceErrorUI() {
-  //在这写弹出错误提示
-}
+// function notifyCallBack(result) {
+//   var receiveDate = strToHexCharCode(JSON.parse(result).data);
+//   if (receiveDate.length > 3) {
+//     if (receiveDate[9] === 129) {
+//       deviceErrorUI();
+//     } else if (receiveDate[0] === 13 && receiveDate[1] === 10) {
+//       backValue(notifyGetData);
+//       notifyGetData = [];
+//       for (let i = 0; i < receiveDate.length; i++) {
+//         notifyGetData.push(receiveDate[i]);
+//       }
+//     } else {
+//       for (let i = 0; i < receiveDate.length; i++) {
+//         notifyGetData.push(receiveDate[i]);
+//       }
+//     }
+//   }
+// }
 
 // ------------------------------------------------------------------------------蓝牙设置区域结束-----------------------------------------------------------------------------
 
@@ -578,4 +611,13 @@ function hexArarryAddSpace(str, split_len = 2) {
     result += str[i] + str[i + 1];
   }
   return result;
+}
+function encodeRead(str) {
+  var result2 = strToHexCharCode(str);
+
+  var result3 = [];
+  for (let i = 0; i < result2.length; i++) {
+    result3[i] = result2[i] ^ 0x33;
+  }
+  return result3;
 }
