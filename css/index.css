@@ -189,7 +189,7 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.cardTwo > div:nth-child(-n + 2) {
+.cardTwo > div:nth-child(-n + 1) {
   height: 0.666667rem;
   border-right: 0.027778rem solid rgba(0, 0, 0, 0.1);
 }
@@ -250,6 +250,42 @@ body {
   background-color: #ffffff;
   border-radius: 0.444444rem;
   margin-left: 0.333333rem;
+}
+
+/* ----加减速度卡片-------------------- */
+.cardSpeed {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 0.333333rem;
+  width: 9.333333rem;
+  height: 1.777778rem;
+  background-color: #ffffff;
+  border-radius: 0.444444rem;
+}
+
+.cardSpeed div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardSpeed img {
+  width: 0.57rem;
+  height: 0.57rem;
+}
+
+.cardSpeed div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeTop2 {
+  font-size: 0.444444rem;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* 蓝牙连接失败提示区域 */

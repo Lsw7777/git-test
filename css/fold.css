@@ -106,6 +106,8 @@ body {
   height: 4.8rem;
   position: fixed;
   top: 8rem;
+  left: 12px;
+  right: 12px;
   background-color: #fce3df;
   font-size: 16px;
   color: #e84026;
@@ -157,6 +159,7 @@ body {
   justify-content: space-between;
   margin: 0 auto;
   height: 8.8rem;
+  margin: 10px 12px 0px 12px;
   background-color: #ffffff;
   border-radius: 16px;
 }
@@ -226,8 +229,8 @@ body {
 /* 二号卡片大卡片 */
 .cardTwo {
   display: flex;
+  margin: 12px 12px 0px 12px;
   align-items: center;
-  margin: 0 auto;
   height: 8.8rem;
   background-color: #ffffff;
   border-radius: 16px;
@@ -240,14 +243,14 @@ body {
   flex-direction: column;
 }
 
-.cardTwo > div:nth-child(-n + 2) {
+.cardTwo > div:nth-child(-n + 1) {
   height: 24px;
   border-right: 0.25px solid rgba(0, 0, 0, 0.2);
 }
 /* ------------------------------- */
 /* 三号长卡片单功能 */
 .cardThree {
-  margin: 0 auto;
+  margin: 12px 12px 0px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -294,6 +297,31 @@ body {
   background-color: #ffffff;
   border-radius: 16px;
   margin-left: 12px;
+}
+/* -------速度加减卡片------------------------------------------ */
+.cardSpeed {
+  margin: 12px 12px 0px 12px;
+  display: flex;
+  align-items: center;
+  height: 6.4rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+.cardSpeed div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardSpeed img {
+  width: 20px;
+  height: 20px;
+}
+.cardSpeed div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 蓝牙连接失败提示区域 */

@@ -42,7 +42,7 @@
         </div>
         <!-- 标志区结束 -->
         <!-- 1号长卡片旋转等待区 -->
-        <div class="cardOne" :style="cardOneMargin">
+        <div class="cardOne">
             <span class="startText" v-text="textSwitch"></span> <!-- 开关待机文字 -->
             <!-- 中间区域 -->
             <div class="middleBox">
@@ -59,6 +59,30 @@
             </div>
         </div>
         <!-- 结束 -->
+        <!-- 二号数据显示卡片 -->
+        <div class="cardTwo">
+            <div>
+                <div class="timeTop">{{dataObj.runningTime}}</div>
+                <div class="underText">{{runningTime}}</div>
+            </div>
+            <div>
+                <div class="timeTop">{{dataObj.frequency}}</div>
+                <div class="underText">{{frequency}}</div>
+            </div>
+        </div>
+        <!-- 三号速度档位长卡片区 -->
+        <div class="cardSpeed" :style="notClick">
+            <div>
+                <img :src='speedImg1' @click="reduce" :style="notClick3" />
+            </div>
+            <div>
+                <span class="timeTop2">{{gear}}</span>
+                <span class="underText">{{speedText}}</span>
+            </div>
+            <div>
+                <img :src='speedImg2' @click='increase' :style="notClick4" />
+            </div>
+        </div>
         <!-- 蓝牙连接失败提示区域 -->
         <van-popup v-model="isShow" position="bottom" :style="popupWidth">
             <div class="dialogTitle">{{ defeatTitle }}</div>

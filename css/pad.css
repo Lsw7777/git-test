@@ -105,6 +105,8 @@ body {
   z-index: 1;
   height: 48px;
   position: fixed;
+  left: 24px;
+  right: 24px;
   top: 80px;
   background-color: #fce3df;
   font-size: 16px;
@@ -157,10 +159,10 @@ body {
   justify-content: space-between;
   margin: 0 auto;
   height: 88px;
+  margin: 10px 24px 0px 24px;
   background-color: #ffffff;
   border-radius: 16px;
 }
-
 .startText {
   flex: 1;
   display: flex;
@@ -227,7 +229,7 @@ body {
 .cardTwo {
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 12px 24px 0px 24px;
   height: 88px;
   background-color: #ffffff;
   border-radius: 16px;
@@ -240,7 +242,7 @@ body {
   flex-direction: column;
 }
 
-.cardTwo > div:nth-child(-n + 2) {
+.cardTwo > div:nth-child(-n + 1) {
   height: 24px;
   border-right: 0.25px solid rgba(0, 0, 0, 0.2);
 }
@@ -296,6 +298,32 @@ body {
   margin-left: 12px;
 }
 
+/* -------速度加减卡片------------------------------------------ */
+.cardSpeed {
+  display: flex;
+  align-items: center;
+  margin: 12px 24px 0px 24px;
+  height: 64px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+.cardSpeed div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardSpeed img {
+  width: 20px;
+  height: 20px;
+}
+.cardSpeed div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 蓝牙连接失败提示区域 */
 .van-popup {
   background-color: #ffffff !important;
@@ -343,7 +371,6 @@ body {
   text-align: center;
   border-right: 0.25px solid rgba(0, 0, 0, 0.2);
   color: #0a59f7;
-  margin-bottom: 14px;
 }
 .cancelText div {
   width: 144px;
@@ -356,7 +383,6 @@ body {
   font-size: 16px;
   text-align: center;
   color: #0a59f7;
-  margin-bottom: 14px;
 }
 .confirmText div {
   width: 144px;

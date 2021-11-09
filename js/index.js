@@ -29,18 +29,32 @@ var app = new Vue({
     notClick: "opacity: 0.4;pointer-events: none",
     // pad折叠屏的适配
     popupWidth: "width:266px",
-    cardOneMargin: "margin: 10px 12px 0px 12px;",
-    tipsMargin: "left: 12px;right: 12px;",
     // 项目独有
+    runningTime: "运行时间",
+    frequency: "每分钟转数",
+    dataObj: {
+      runningTime: "- -",
+      frequency: "- -",
+    },
+    speedImg1: "./image/reduce.png",
+    speedImg2: "./image/increase.png",
+    gear: "- -",
+    gear2: "",
+    speedText: "档位",
+    notClick3: "",
+    notClick4: "",
   },
   created() {},
   methods: {
     initialization() {
       //初始化函数
+      this.gear = "- -";
     },
     dark() {
       this.darkModel = "./css/dark.css";
       this.buttonImg = "./image/standbyDark.png";
+      this.speedImg1 = "./image/reduceDark.png";
+      this.speedImg2 = "./image/increaseDark.png";
     },
     tipsFun(id) {
       if (id) {
@@ -54,6 +68,17 @@ var app = new Vue({
         this.tipShow = false;
         this.$refs.marginTop.style.margin = "";
       }
+    },
+    // 档位加减函数
+    increase() {
+      this.gear2 = this.gear;
+      this.gear2 = this.gear2 < 5 ? this.gear2 + 1 : 5; //最小值为1，最大值为5
+      writeSpeed(this.gear2);
+    },
+    reduce() {
+      this.gear2 = this.gear;
+      this.gear2 = this.gear2 > 1 ? this.gear2 - 1 : 1;
+      writeSpeed(this.gear2);
     },
     reconnection() {
       openOrClose();
@@ -73,6 +98,9 @@ var app = new Vue({
         this.defeatText =
           "Try the following： <br> 1.Please confirm that the equipment is powered on <br> \
                 2.Place the device close to the phone to be connected (within 10 meters)";
+        this.speedText = "Current gear";
+        this.runningTime = "Running time";
+        this.frequency = "revolutions per minute";
         // -----------------------项目独有区域-----------------------------------------
       }
     },
@@ -116,11 +144,7 @@ function uiShow(id) {
       app.isShow = false;
       app.imgShow1 = true;
       app.imgShow2 = false;
-      if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 24px 0px 24px;";
-      } else {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 12px 0px 12px;";
-      }
+      app.notClick = "opacity: 0.38;pointer-events: none";
       if (currentLanguage !== "zh-CN") {
         app.textSwitch = "Connecting";
         app.reconnect = "Relink";
@@ -137,11 +161,7 @@ function uiShow(id) {
       // 未连接状态
       app.imgShow1 = false;
       app.imgShow2 = false;
-      if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 24px 0px 24px;";
-      } else {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 12px 0px 12px;";
-      }
+      app.notClick = "opacity: 0.38;pointer-events: none";
       if (currentLanguage !== "zh-CN") {
         (app.textSwitch = "Disconnect"), (app.reconnect = "Relink");
       } else {
@@ -158,11 +178,7 @@ function uiShow(id) {
       app.isShow = false;
       app.imgShow1 = false;
       app.imgShow2 = true;
-      if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 24px 0px 24px;";
-      } else {
-        app.notClick = "opacity: 0.38;pointer-events: none;margin: 12px 12px 0px 12px;";
-      }
+      app.notClick = "opacity: 0.38;pointer-events: none";
       if (currentLanguage !== "zh-CN") {
         app.textSwitch = "Standby";
       } else {
@@ -182,11 +198,7 @@ function uiShow(id) {
       app.isShow = false;
       app.imgShow1 = false;
       app.imgShow2 = true;
-      if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
-        app.notClick = "margin: 12px 24px 0px 24px;";
-      } else {
-        app.notClick = "margin: 12px 12px 0px 12px;";
-      }
+      app.notClick = "";
       if (currentLanguage !== "zh-CN") {
         app.textSwitch = "Working";
       } else {
@@ -215,14 +227,6 @@ function start() {
   } else {
     app.padCss = false;
     app.foldCss = false;
-  }
-  if (600 < document.body.clientWidth && document.body.clientWidth < 670) {
-    app.notClick = "opacity: 0.4;pointer-events: none;margin: 12px 24px 0px 24px;";
-    app.cardOneMargin = "margin: 10px 24px 0px 24px;";
-    app.cardTwoMargin = "margin: 12px 24px 0px 24px;";
-    app.tipsMargin = "left: 24px;right: 24px;";
-  } else {
-    app.notClick = "opacity: 0.4;pointer-events: none;margin: 12px 12px 0px 12px;";
   }
   setInterval(() => {
     if (screenWidth != document.body.clientWidth) {

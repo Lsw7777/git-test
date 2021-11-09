@@ -28,6 +28,7 @@ body,
 .cardOne,
 .cardTwo,
 .cardThree,
+.cardSpeed,
 .smallLeft,
 .smallRight {
   background-color: #303030 !important;
@@ -146,6 +147,6 @@ body,
 .van-picker-column__item--selected .van-ellipsis {
   color: #5291ff !important;
 }
-.cardTwo > div:nth-child(-n + 2) {
+.cardTwo > div:nth-child(-n + 1) {
   border-right: 0.006944rem solid rgba(255, 255, 255, 0.2) !important;
 }
