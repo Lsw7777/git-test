@@ -1,0 +1,583 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+html {
+  font-size: 8.89px;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+ul,
+li {
+  list-style: none;
+}
+
+@media only screen and (min-width: 320px) {
+  html {
+    font-size: 8.89px;
+  }
+}
+
+@media only screen and (min-width: 360px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  html {
+    font-size: 10.42px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  html {
+    font-size: 11.11px;
+  }
+}
+
+/* -----------------------项目css样式区---------------------------------------------------------------- */
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f1f3f5;
+  overflow: scroll;
+  user-select: none;
+  -webkit-user-select: none;
+  /* 禁止文字复制 */
+  position: relative;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/* 公共区域 */
+/* 下方小蓝色字体 */
+
+/* 小图标区 */
+.icon {
+  width: 24px;
+  margin-right: 16px;
+}
+
+/* 背景模板区 */
+.headerBox {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #f1f3f5;
+}
+
+.headerTop {
+  height: 24px;
+}
+
+.headerUnder {
+  height: 56px;
+}
+
+/* 警告提示区 */
+.tips {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  height: 48px;
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  top: 80px;
+  background-color: #fce3df;
+  font-size: 16px;
+  color: #e84026;
+  border-radius: 16px;
+}
+
+.tips > img {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+  margin-right: 16px;
+}
+
+/* 背景模板区结束 */
+/* 商品图片标志区 */
+.goodsImage {
+  display: flex;
+  justify-content: center;
+}
+
+.goodsImage > img {
+  margin-top: 80px !important;
+  width: 252px;
+  height: 252px;
+  margin: 0 auto;
+}
+
+/* 标志区 */
+.goodsMark {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 18px;
+}
+
+.goodsMark > img {
+  width: 80%;
+  height: 80%;
+}
+
+/* 图片标志区结束  */
+/* 一号卡片区 */
+.cardOne {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 88px;
+  margin: 10px 24px 0px 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+.startText {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* 长卡片中间区域 */
+.middleBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.changeBox {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeTop {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.timeTop > img {
+  width: 24px;
+}
+.unit {
+  margin-left: 2px;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.underText {
+  margin-top: 2px;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* 等待动画区 */
+.imgOpen {
+  width: 40px;
+  height: 40px;
+}
+
+.imgOpen2 {
+  border-radius: 100%;
+  height: 48px;
+  width: 48px;
+}
+
+.imgOpen3 {
+  font-size: 16px !important;
+  color: #0a59f7 !important;
+}
+
+/* 一号卡片结束 */
+
+/* 二号卡片大卡片 */
+.cardTwo {
+  display: flex;
+  align-items: center;
+  margin: 12px 24px 0px 24px;
+  height: 88px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+.cardTwo > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cardTwo > div:nth-child(-n + 1) {
+  height: 24px;
+  border-right: 0.25px solid rgba(0, 0, 0, 0.2);
+}
+/* ------------------------------- */
+/* 三号长卡片单功能 */
+.cardThree {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+/* ----------------------------------------------- */
+/* 四号功能左右小卡片区 */
+.smallBox {
+  display: flex;
+}
+.smallLeft {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+/* 左侧区 */
+.textBox {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin-left: 16px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.smallLeft > img {
+  margin-right: 16px;
+  width: 24px;
+}
+
+/* 右侧区 */
+.smallRight {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  margin-left: 12px;
+}
+
+/* -------速度加减卡片------------------------------------------ */
+.cardSpeed {
+  display: flex;
+  align-items: center;
+  margin: 12px 24px 0px 24px;
+  height: 64px;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+.cardSpeed div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardSpeed img {
+  width: 20px;
+  height: 20px;
+}
+.cardSpeed div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 蓝牙连接失败提示区域 */
+.van-popup {
+  background-color: #ffffff !important;
+  border-radius: 24px !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialogTitle {
+  margin-left: 24px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.defeatText {
+  margin-bottom: 8px;
+  margin-left: 24px;
+  margin-right: 24px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 21px;
+}
+
+.van-overlay {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 蓝牙按钮区 */
+.bluetoothButton {
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cancelText {
+  flex: 1;
+  height: 28px;
+  line-height: 28px;
+  font-size: 16px;
+  text-align: center;
+  border-right: 0.25px solid rgba(0, 0, 0, 0.2);
+  color: #0a59f7;
+}
+.cancelText div {
+  width: 144px;
+  margin-left: 16px;
+}
+.confirmText {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 1;
+  font-size: 16px;
+  text-align: center;
+  color: #0a59f7;
+}
+.confirmText div {
+  width: 144px;
+  margin-right: 16px;
+}
+
+/* 蓝牙连接失败提示区结束 */
+.log1 {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+/* ---------圆圈radio选项------------------- */
+.radioImg {
+  width: 24px;
+  height: 24px;
+}
+.van-cell {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+  padding: 0 0 0 24px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.van-radio__icon {
+  margin-right: 24px;
+}
+
+.van-radio-group {
+  margin-bottom: 8px;
+  overflow: scroll;
+  height: 192px;
+}
+.van-icon {
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -9999;
+}
+
+.van-icon-success::before {
+  content: "";
+}
+
+.van-hairline--top-bottom::after,
+.van-hairline-unset--top-bottom::after {
+  border-width: 0px 0 !important;
+}
+
+.van-cell::after {
+  right: 24px !important;
+  left: 24px !important;
+  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2) !important;
+}
+/* -------------------------------------------------- */
+/* 倒计时区域 */
+.van-picker {
+  margin-bottom: 8px;
+}
+.van-picker__cancel {
+  font-size: 1.6rem;
+  color: #0a59f7;
+  width: 144px;
+  line-height: 28px;
+  margin-left: 16px !important;
+  height: 28px;
+  padding: 0 0;
+}
+.van-picker__confirm {
+  font-size: 16px;
+  color: #0a59f7;
+  width: 144px;
+  line-height: 28px;
+  height: 28px;
+  padding: 0 0;
+  margin-right: 16px;
+}
+
+.van-picker__cancel {
+  border-right: 0.25px solid rgba(0, 0, 0, 0.2);
+}
+
+.van-ellipsis {
+  font-size: 1.6rem;
+}
+
+.van-picker__toolbar {
+  height: 56px;
+  margin-top: 8px;
+}
+
+/* .van-picker__columns {
+    height: 5.555556rem !important;
+} */
+
+.van-picker-column__item--selected .van-ellipsis {
+  font-size: 2rem;
+  margin-left: 21.6px;
+}
+
+.van-popup .van-picker__frame {
+  height: 56px !important;
+  border-top: 0.25px solid rgba(0, 0, 0, 0.2) !important;
+  border-bottom: 0.25px solid rgba(0, 0, 0, 0.2) !important;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*
+
+/* 中间选中区域 */
+
+.van-picker-column__item--selected {
+  color: #0a59f7 !important;
+  font-size: 1.8rem !important;
+  padding-right: 22px !important;
+}
+
+/* 分钟 */
+.timingBox .van-picker-column__item--selected::after {
+  content: "分钟";
+  margin-left: 3.6px;
+}
+
+.timingTwo .van-picker-column__item--selected::after {
+  content: "min";
+  margin-left: 3.6px;
+}
+
+/* 默认选项第三个时 */
+.selectThree .van-picker-column__item--selected > .van-ellipsis {
+  margin-bottom: 0rem !important;
+  margin-top: 0rem !important;
+}
+
+.selectThree .van-picker-column__item:nth-child(1) > .van-ellipsis {
+  margin-top: 26px;
+}
+
+.selectThree .van-picker-column__item:nth-child(3) > .van-ellipsis {
+  margin-bottom: 10px;
+}
+
+.selectThree .van-picker-column__item:nth-child(4) > .van-ellipsis {
+  margin-top: 10px;
+}
+
+/* 选项第二个时 */
+.selectTwo .van-picker-column__item:nth-child(1) > .van-ellipsis {
+  margin-bottom: 3.6px;
+}
+
+.selectTwo .van-picker-column__item:nth-child(3) > .van-ellipsis {
+  margin-top: 3.6px;
+}
+
+.selectTwo .van-picker-column__item:nth-child(4) > .van-ellipsis {
+  margin-bottom: 18px;
+}
+
+/* 选项为第四个时 */
+.selectFour .van-picker-column__item:nth-child(2) > .van-ellipsis {
+  margin-top: 21.24px;
+}
+
+.van-picker__mask {
+  height: 16% !important;
+  background-image: -webkit-linear-gradient(
+    top,
+    hsla(0, 0%, 100%, 0.9),
+    hsla(0, 0%, 100%, 0.1)
+  ) !important;
+  background-image: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0.9),
+    hsla(0, 0%, 100%, 0.1)
+  ) !important;
+}
+
+.van-picker__maskTwo {
+  position: absolute;
+  bottom: 61.2px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 10%;
+  background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
+  background-image: linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+/* 结束 */
